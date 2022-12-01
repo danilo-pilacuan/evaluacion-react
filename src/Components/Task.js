@@ -35,7 +35,7 @@ function TodoList({props})
         dispatch({type: 'checked',payload:!checked});
         axios.put("https://bp-todolist.herokuapp.com/"+id,{
             "description": description,
-            "status": checked,
+            "status": !status,
             "id_author": 11,
             "finish_at": (new Date()).toISOString()
         })
