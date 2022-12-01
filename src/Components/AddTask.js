@@ -1,3 +1,4 @@
+import axios from 'axios';
 import {useState, useEffect,useReducer} from "react";
 function reducer(state, action) {
     switch (action.type) {
@@ -19,7 +20,12 @@ function AddTask()
       }
     
       const handlePost=(id)=>{
-        axios.post("https://bp-todolist.herokuapp.com/?id_author=11")
+        axios.post("https://bp-todolist.herokuapp.com/?id_author=11",{
+            "description": texto,
+            "status": 0,
+            "id_author": 11,
+            "finish_at": (new Date()).toISOString()
+        })
         .then((response) => {
             dispatch({type: 'get',payload:response.data.data});
         })
