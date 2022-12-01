@@ -27,7 +27,7 @@ function AddTask()
             "finish_at": (new Date()).toISOString()
         })
         .then((response) => {
-            dispatch({type: 'get',payload:response.data.data});
+            
         })
 
         .catch((error) => console.log(error));
